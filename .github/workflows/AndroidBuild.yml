@@ -13,11 +13,11 @@ jobs:
     steps:
 # Checking out branch
       - name: Checkout
-        uses: action/checkout@v4.1.0
+        uses: actions/checkout@v4.1.0
 
 # Setting up java JDK
       - name: Setup Java JDK
-        uses:  action/setup-java@v4.5.0
+        uses:  actions/setup-java@v4.5.0
         with:
           distribution: 'adopt'
           java-version: '17'
