@@ -18,8 +18,12 @@ jobs:
 # Setting up java JDK
       - name: Setup Java JDK
         uses:  action/setup-java@v4.5.0
+        with:
+          distribution: 'adopt'
+          java-version: '17'
 
-#Running gradle command
+
+      #Running gradle command
       - name: Build with Gradle
         run: ./gradlew build
 
