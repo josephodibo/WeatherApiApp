@@ -1,0 +1,33 @@
+name: Android Build
+on:
+  pull_request:
+    branches:
+      - main
+  push:
+    branches:
+      - main
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+# Checking out branch
+      - name: Checkout
+        uses: action/checkout@v4.1.0
+
+# Setting up java JDK
+      - name: Setup Java JDK
+        uses:  action/setup-java@v4.5.0
+
+#Running gradle command
+      - name: Build with Gradle
+        run: ./gradlew build
+
+#Uploadind build artifact
+      - name: Upload a Build Artifact
+        uses: actions/upload-artifact@v4.4.3
+        with:
+          name: WeatherApiApp.apk
+          path: app/build/output/apk/app-debug.apk
+
+
